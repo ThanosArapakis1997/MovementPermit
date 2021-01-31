@@ -8,6 +8,7 @@ Hua essay in Distributed Systems
 Η βάση χρησιμοποιεί την MySql, έκδοση 8.0.21
 
 Για να τρέξει το σύστημα πρέπει να υπάρχει στη βάση το schema MovementPermit και οι πίνακες 
+
 user με πεδία username, password και enabled (primary key username)
 
 authorities με username, authority (foreign key username)
