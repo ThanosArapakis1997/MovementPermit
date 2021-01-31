@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+h1 {
+text-align: center;
+}
+
+.conclusion{
+	text-align: center;
+    text-align: justify;
+}
+.btn{
+  display: inline-block;
+  font-family: Roboto;
+  border-radius: 3px;
+  background: #434d5a;
+  border: none;
+  padding: 1em 0;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  width: 9em;
+}
+.btn:hover,.form button:active,.form button:focus {
+  background: #151B54;
+}
+.box{
+	width: 360px;
+    height: 500px;
+    overflow-y: auto;
+    margin: 0px auto;
+    background-color: inherit;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+}
+body{
+	font-family: 'Helvetica Neue', 'Roboto', sans-serif;
+}
