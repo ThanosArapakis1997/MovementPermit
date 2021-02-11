@@ -11,10 +11,10 @@ import javax.persistence.Table;
 @Table(name="user")
 public class user {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
 	@Column(name="username")
 	private String username;
 	
@@ -51,6 +51,7 @@ public class user {
 		this.password = password;
 	}
 
+	
 	public boolean isEnabled() {
 		return enabled;
 	}

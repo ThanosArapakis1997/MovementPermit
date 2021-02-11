@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import gr.hua.dit.ds.ergasia.entity.Form;
-import gr.hua.dit.ds.ergasia.entity.User;
 import gr.hua.dit.ds.ergasia.entity.user;
 
 
@@ -24,15 +23,15 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	@Transactional
-	public List<User> getUsers() {
+	public List<user> getUsers() {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		// create a query
-		Query<User> query = currentSession.createQuery("from User", User.class);
+		Query<user> query = currentSession.createQuery("from user", user.class);
 
 		// execute the query and get the results list
-		List<User> users = query.getResultList();
+		List<user> users = query.getResultList();
 
 		// return the results
 		return users;
@@ -96,5 +95,14 @@ public class UserDAOImpl implements UserDAO {
 		Form form=get.getSingleResult();
 	    form.setApproved(true);
 					
+	}
+
+	@Override
+	@Transactional
+	public void deleteuser(String user) {
+      Session session= sessionFactory.getCurrentSession();
+      
+      session.createQuery("delete from user where username= :user", user.class).setParameter("user",user).executeUpdate();
+		
 	}	
 }

@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import gr.hua.dit.ds.ergasia.dao.UserDAO;
 import gr.hua.dit.ds.ergasia.entity.Form;
-import gr.hua.dit.ds.ergasia.entity.User;
 import gr.hua.dit.ds.ergasia.entity.user;
 
 @Service
@@ -19,7 +18,7 @@ public class SystemServiceImpl implements SystemService {
 	
 	@Override
 	@Transactional
-	public List<User> getUsers() {
+	public List<user> getUsers() {
 		return Dao.getUsers();
 	}
 
@@ -50,6 +49,11 @@ public class SystemServiceImpl implements SystemService {
 	@Override
 	public void saveApprovedForm(String username) {
         Dao.saveApprovedForm(username);		
+	}
+
+	@Override
+	public void deleteuser(String user) {
+        Dao.deleteuser(user);		
 	}
 
 }

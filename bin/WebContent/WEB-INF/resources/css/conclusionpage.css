@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+h2{
+	
+  position: relative;
+  left: 40px;
+   
+}
+.card-body{
+  position: relative;
+  left: 30px;
+  }
+.btn{
+  display: inline-block;
+  font-family: Roboto;
+  border-radius: 3px;
+  background: #434d5a;
+  border: none;
+  padding: 1em 0;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  width: 9em;
+}
+.btn:hover,.form button:active,.form button:focus {
+  background: #151B54;
+}
+body{
+	font-family: 'Montserrat';
+}
+

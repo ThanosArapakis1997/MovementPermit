@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -48,10 +48,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter  {
 		protected void configure(HttpSecurity http) throws Exception {
 			http.authorizeRequests()
 			.antMatchers("/signup").permitAll()
-			.antMatchers("/").hasAnyRole("EMPLOYEE","HEAD","DIRECTOR","PERSONEL")
-			.antMatchers("/menu").hasAnyRole("EMPLOYEE","HEAD")
-			.antMatchers("/conclusion").hasAnyRole("HEAD","DIRECTOR")
-			.antMatchers("/conclusion/personel").hasRole("PERSONEL")
+			.antMatchers("/").hasAnyRole("EMPLOYEE","HEAD","DIRECTOR","PERSONEL","ADMIN")
+			.antMatchers("/menu").hasAnyRole("EMPLOYEE","HEAD","ADMIN")
+			.antMatchers("/conclusion").hasAnyRole("HEAD","DIRECTOR","ADMIN")
+			.antMatchers("/conclusion/personel").hasAnyRole("PERSONEL","ADMIN")
+			.antMatchers("/users").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and().formLogin().loginPage("/login")
 			.loginProcessingUrl("/authUser").permitAll().and()

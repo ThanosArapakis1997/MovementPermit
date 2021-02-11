@@ -106,7 +106,15 @@ public class HomeController {
 	   for(int i=0; i<Approved.length; i++) {
 		   Service.saveApprovedForm(Approved[i]);
 	   }
+	   return "hello";
+   } 
 	   
+	   @PostMapping("/users/hello")
+	   public String delete(HttpServletRequest Request, Model model) {
+		   String Delete[]= Request.getParameterValues("delete");
+		   for(int i=0; i<Delete.length; i++) {
+			   Service.deleteuser(Delete[i]);
+		   }
 	   
 	   return "hello";
    }
@@ -140,7 +148,6 @@ public class HomeController {
 	   return "hello";  
    }
    
-   @Secured("ROLE_PERSONEL")
    @GetMapping("/p")
    public String personel(HttpServletRequest Request, Model model) {
 	   
@@ -156,6 +163,16 @@ public class HomeController {
    @GetMapping("/")
    public String choice() {
 	   return "Choice";
+   }
+   
+   @GetMapping("/users")
+   public String users(HttpServletRequest Request) {
+	   List<user> Users=new ArrayList<user>();
+	   
+	   Users=Service.getUsers();
+	   Request.setAttribute("Users", Users);
+	   
+	   return "users";
    }
    
    
